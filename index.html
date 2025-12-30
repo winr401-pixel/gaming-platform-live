@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#020617;
+  --card:#0f172a;
+  --text:#ffffff;
+  --accent:#22d3ee;
+}
+.light{
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --text:#020617;
+  --accent:#2563eb;
+}
+body{
+  margin:0;
+  font-family:Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+  background:var(--card);
+}
+header h2{margin:0;color:var(--accent);}
+.toggle{
+  cursor:pointer;
+  font-size:20px;
+}
+.menu{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:20px;
+}
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  cursor:pointer;
+}
+.card:hover{opacity:.9}
+a{color:inherit;text-decoration:none}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>🎮 Admin Dashboard</h2>
+  <div class="toggle" onclick="toggleMode()">🌗</div>
+</header>
+
+<div class="menu">
+  <a href="users.html"><div class="card">👥 Users</div></a>
+  <a href="payments.html"><div class="card">💰 Payments</div></a>
+  <a href="games.html"><div class="card">🎮 Games</div></a>
+  <a href="reports.html"><div class="card">📊 Balance Report</div></a>
+  <a href="notifications.html"><div class="card">🔔 Notifications</div></a>
+  <a href="support.html"><div class="card">🆘 Support / Chat</div></a>
+  <a href="settings.html"><div class="card">⚙️ Settings</div></a>
+</div>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("light");
+  localStorage.theme =
+    document.body.classList.contains("light") ? "light" : "dark";
+}
+if(localStorage.theme==="light"){
+  document.body.classList.add("light");
+}
+</script>
+
+</body>
+</html>
